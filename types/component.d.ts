@@ -1,9 +1,8 @@
-import * as angular from 'angular';
-import { IComponentOptions } from 'angular';
+import { IControllerConstructor, IComponentOptions } from 'angular';
 export interface ComponentOptionsDecorated extends IComponentOptions {
     selector: string;
     styles?: any[];
     restrict?: string;
     replace?: boolean;
 }
-export declare function Component({ selector, ...options }: ComponentOptionsDecorated): (ctrl: angular.IControllerConstructor) => void;
+export declare function Component({ selector, ...options }: ComponentOptionsDecorated): (ctrl: IControllerConstructor) => void;

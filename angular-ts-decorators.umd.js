@@ -1,8 +1,8 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('angular'), require('tslib'), require('reflect-metadata')) :
     typeof define === 'function' && define.amd ? define(['exports', 'angular', 'tslib', 'reflect-metadata'], factory) :
-    (global = global || self, factory(global['angular-ts-decorators'] = {}, global.angular, global.tslib_1));
-}(this, function (exports, angular, tslib_1) { 'use strict';
+    (global = global || self, factory(global['angular-ts-decorators'] = {}, global.angular, global.tslib));
+}(this, function (exports, angular, tslib) { 'use strict';
 
     var platformBrowserDynamic = function () { return PlatformRef; };
     var PlatformRef = /** @class */ (function () {
@@ -122,7 +122,7 @@
     };
 
     function Component(_a) {
-        var selector = _a.selector, options = tslib_1.__rest(_a, ["selector"]);
+        var selector = _a.selector, options = tslib.__rest(_a, ["selector"]);
         return function (ctrl) {
             options.controller = ctrl;
             var isAttrSelector = isAttributeSelector(selector);
@@ -169,7 +169,7 @@
         var namespace = '.HostListener';
         var properties = Object.keys(viewChildren);
         var NewCtrl = /** @class */ (function (_super) {
-            tslib_1.__extends(NewCtrl, _super);
+            tslib.__extends(NewCtrl, _super);
             function NewCtrl($element) {
                 var args = [];
                 for (var _i = 1; _i < arguments.length; _i++) {
@@ -240,7 +240,7 @@
             };
             return NewCtrl;
         }(ctrl));
-        NewCtrl.$inject = ['$element'].concat(ctrl.$inject || []);
+        NewCtrl.$inject = tslib.__spreadArray(['$element'], ctrl.$inject || []);
         return NewCtrl;
     }
     /** @internal */
@@ -259,7 +259,7 @@
     }
 
     function Directive(_a) {
-        var selector = _a.selector, options = tslib_1.__rest(_a, ["selector"]);
+        var selector = _a.selector, options = tslib.__rest(_a, ["selector"]);
         return function (ctrl) {
             var bindings = getMetadata(metadataKeys.bindings, ctrl);
             if (bindings) {
@@ -367,7 +367,7 @@
             var instance = injector.instantiate(filter);
             return instance.transform.bind(instance);
         };
-        filterFactory.$inject = ['$injector'].concat(filter.$inject || []);
+        filterFactory.$inject = tslib.__spreadArray(['$injector'], filter.$inject || []);
         module.filter(name, filterFactory);
     }
 
@@ -399,7 +399,7 @@
         var method = target[propertyKey];
         var injections = getMetadata(injectionsKey(propertyKey), target) || [];
         var runMethods = getMetadata(metaKey, target) || [];
-        runMethods.push(injections.concat([method]));
+        runMethods.push(tslib.__spreadArray(tslib.__spreadArray([], injections), [method]));
         defineMetadata(metaKey, runMethods, target);
     };
     function Run() {

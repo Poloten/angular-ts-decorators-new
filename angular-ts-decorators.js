@@ -1,5 +1,5 @@
 import { element, bootstrap, isFunction, module } from 'angular';
-import { __rest, __extends } from 'tslib';
+import { __rest, __extends, __spreadArray } from 'tslib';
 import 'reflect-metadata';
 
 var platformBrowserDynamic = function () { return PlatformRef; };
@@ -239,7 +239,7 @@ function extendWithHostListenersAndChildren(ctrl, listeners, viewChildren) {
         };
         return NewCtrl;
     }(ctrl));
-    NewCtrl.$inject = ['$element'].concat(ctrl.$inject || []);
+    NewCtrl.$inject = __spreadArray(['$element'], ctrl.$inject || []);
     return NewCtrl;
 }
 /** @internal */
@@ -366,7 +366,7 @@ function registerPipe(module, filter) {
         var instance = injector.instantiate(filter);
         return instance.transform.bind(instance);
     };
-    filterFactory.$inject = ['$injector'].concat(filter.$inject || []);
+    filterFactory.$inject = __spreadArray(['$injector'], filter.$inject || []);
     module.filter(name, filterFactory);
 }
 
@@ -398,7 +398,7 @@ var addMethod = function (target, propertyKey, metaKey) {
     var method = target[propertyKey];
     var injections = getMetadata(injectionsKey(propertyKey), target) || [];
     var runMethods = getMetadata(metaKey, target) || [];
-    runMethods.push(injections.concat([method]));
+    runMethods.push(__spreadArray(__spreadArray([], injections), [method]));
     defineMetadata(metaKey, runMethods, target);
 };
 function Run() {
