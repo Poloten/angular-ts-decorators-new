@@ -2,28 +2,6 @@
 
 A collection of angular 2 style decorators for angularjs 1.5.x projects written in typescript.
 
-[![Build Status](https://travis-ci.org/vsternbach/angular-ts-decorators.svg?branch=master)](https://travis-ci.org/vsternbach/angular-ts-decorators)
-[![Coverage Status](https://coveralls.io/repos/github/vsternbach/angular-ts-decorators/badge.svg?branch=master)](https://coveralls.io/github/vsternbach/angular-ts-decorators?branch=master)
-[![Greenkeeper badge](https://badges.greenkeeper.io/vsternbach/angular-ts-decorators.svg)](https://greenkeeper.io/)
-
-[![NPM](https://nodei.co/npm/angular-ts-decorators.png?downloads=true)](https://nodei.co/npm/angular-ts-decorators/)
-
-See example of usage [here](https://github.com/vsternbach/angularjs-typescript-webpack)
-
-## Prerequisites
-`angular-ts-decorators` tries to mimic [angular 2 style](https://angular.io/docs/ts/latest/guide/style-guide.html) decorators as closely as possible.
-
-Some of the decorator interfaces (@Component and @Directive) were heavily inspired by this excellent [Angular 1.x styleguide (ES2015)](https://github.com/toddmotto/angular-styleguide).
-
-> Behind the scenes it uses [Metadata Reflection API](https://www.npmjs.com/package/reflect-metadata) to add metadata to the classes.
-
-## Installation
-
-`npm i -S angular-ts-decorators`
-
-Dependencies: `tslib` and `reflect-metadata`
-Peer dependencies: `"angular": ">=1.5.0"`
-
 ## Available decorators
 
 | Decorator     | angularjs analog                            | Details   |
